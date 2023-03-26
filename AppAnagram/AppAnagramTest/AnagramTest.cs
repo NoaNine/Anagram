@@ -1,11 +1,9 @@
-using System;
-using MyAnagram;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using AppAnagram;
 
-namespace MyAnagramTests
+namespace AppAnagramTest
 {
     [TestClass]
-    public class UnitTest1
+    public class AnagramTest
     {
         [TestMethod]
         public void Test1()
@@ -41,8 +39,8 @@ namespace MyAnagramTests
         public void Test3()
         {
             //arrage
-            string input = "  a1bcd    efg!h";
-            string expected = "  d1cba    hgf!e";
+            string input = "a1bcd efg!h";
+            string expected = "d1cba hgf!e";
             Anagram anagram = new Anagram();
 
             //act
@@ -56,8 +54,8 @@ namespace MyAnagramTests
         public void Test4()
         {
             //arrage
-            string input = "  a111bcd    efg!!!h";
-            string expected = "  d111cba    hgf!!!e";
+            string input = "  a1bcd    efg!h";
+            string expected = "  d1cba    hgf!e";
             Anagram anagram = new Anagram();
 
             //act
@@ -72,7 +70,7 @@ namespace MyAnagramTests
         {
             //arrage
             string input = "";
-            string expected = "IsNullOrEmpty";
+            string expected = "";
             Anagram anagram = new Anagram();
 
             //act
@@ -87,7 +85,7 @@ namespace MyAnagramTests
         {
             //arrage
             string input = null;
-            string expected = "IsNullOrEmpty";
+            string expected = "";
             Anagram anagram = new Anagram();
 
             //act

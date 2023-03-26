@@ -4,24 +4,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyAnagram
+namespace AppAnagram
 {
     public class Anagram
     {
+        public string Reverse(string str)
+        {
+            if (str == null)
+            {
+                return "";
+            }
+            string[] word = str.Split(' ');
+            for (int i = 0; i < word.Length; i++)
+            {
+                word[i] = ReverseWord(word[i]);
+            }
+            return string.Join(' ', word);
+        }
+
         private string ReverseWord(string word)
         {
-            char[] wordInChars = word.ToCharArray();
             char[] reverseWordInChars = new char[word.Length];
             int counterLastLetter = 0;
-            for (int i = 0; i < wordInChars.Length; i++)
+            for (int i = 0; i < word.Length; i++)
             {
-                if (Char.IsLetter(wordInChars[i]))
+                if (Char.IsLetter(word[i]))
                 {
                     for (int j = reverseWordInChars.Length - 1 - counterLastLetter; j > -1; j--)
                     {
-                        if (Char.IsLetter(wordInChars[j]))
+                        if (Char.IsLetter(word[j]))
                         {
-                            reverseWordInChars[j] = wordInChars[i];
+                            reverseWordInChars[j] = word[i];
                             counterLastLetter++;
                             break;
                         }
@@ -33,26 +46,10 @@ namespace MyAnagram
                 }
                 else
                 {
-                    reverseWordInChars[i] = wordInChars[i];
+                    reverseWordInChars[i] = word[i];
                 }
             }
             return new string(reverseWordInChars);
-        }
-        public string Reverse(string str)
-        {
-            if (string.IsNullOrEmpty(str))
-            {
-                return "IsNullOrEmpty";
-            }
-            else
-            {
-                string[] word = str.Split(' ');
-                for (int i = 0; i < word.Length; i++)
-                {
-                    word[i] = ReverseWord(word[i]);
-                }
-                return string.Join(' ', word);
-            }
         }
     }
 }
