@@ -10,9 +10,9 @@ namespace AppAnagram
     {
         public string Reverse(string str)
         {
-            if (str == null)
+            if (string.IsNullOrEmpty(str))
             {
-                return "";
+                return string.Empty;
             }
             string[] word = str.Split(' ');
             for (int i = 0; i < word.Length; i++)
