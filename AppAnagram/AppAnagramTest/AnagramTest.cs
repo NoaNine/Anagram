@@ -5,12 +5,59 @@ namespace AppAnagramTest
     [TestClass]
     public class AnagramTest
     {
-        [TestMethod]
-        public void Test1()
+        [DataTestMethod]
+        [DataRow("Test", "tseT")]
+        [DataRow("abcd efgh", "dcba hgfe")]
+        [DataRow("a1bcd efg!h", "d1cba hgf!e")]
+        [DataRow("  a1bcd    efg!h", "  d1cba    hgf!e")]
+        public void QuickTest(string input, string expected)
         {
             //arrage
-            string input = "Test";
-            string expected = "tseT";
+            Anagram anagram = new Anagram();
+
+            //act
+            string output = anagram.Reverse(input);
+
+            //assert
+            Assert.AreEqual(expected, output);
+        }
+
+        [DataTestMethod]
+        [DataRow("Π³οκΰ", "ΰκο³Π")]
+        [DataRow("Telegram", "margeleT")]
+        public void ReverseWord(string input, string expected)
+        {
+            //arrage
+            Anagram anagram = new Anagram();
+
+            //act
+            string output = anagram.Reverse(input);
+
+            //assert
+            Assert.AreEqual(expected, output);
+        }
+
+        [DataTestMethod]
+        [DataRow("anna", "anna")]
+        [DataRow("12345", "12345")]
+        public void NonReverseWord(string input, string expected)
+        {
+            //arrage
+            Anagram anagram = new Anagram();
+
+            //act
+            string output = anagram.Reverse(input);
+
+            //assert
+            Assert.AreEqual(expected, output);
+        }
+
+        [DataTestMethod]
+        [DataRow("%%%Moon%%%", "%%%nooM%%%")]
+        [DataRow("A#pplicatio~n", "n#oitacilpp~A")]
+        public void MixWordReverseAndNonReverseChar(string input, string expected)
+        {
+            //arrage
             Anagram anagram = new Anagram();
 
             //act
@@ -21,11 +68,15 @@ namespace AppAnagramTest
         }
 
         [TestMethod]
-        public void Test2()
+        public void ReverseSentence()
         {
             //arrage
-            string input = "abcd efgh";
-            string expected = "dcba hgfe";
+            string input = "Initializes a new instance of the " +
+                "Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute " +
+                "class which takes in an array of arguments.";
+            string expected = "sezilaitinI a wen ecnatsni fo eht " +
+                "etubirttA.woRataDgnits.eTtinUslo.oTtseToidut.SlausiVtfosorciM " +
+                "ssalc hcihw sekat ni na yarra fo stnemugra.";
             Anagram anagram = new Anagram();
 
             //act
@@ -36,37 +87,7 @@ namespace AppAnagramTest
         }
 
         [TestMethod]
-        public void Test3()
-        {
-            //arrage
-            string input = "a1bcd efg!h";
-            string expected = "d1cba hgf!e";
-            Anagram anagram = new Anagram();
-
-            //act
-            string output = anagram.Reverse(input);
-
-            //assert
-            Assert.AreEqual(expected, output);
-        }
-
-        [TestMethod]
-        public void Test4()
-        {
-            //arrage
-            string input = "  a1bcd    efg!h";
-            string expected = "  d1cba    hgf!e";
-            Anagram anagram = new Anagram();
-
-            //act
-            string output = anagram.Reverse(input);
-
-            //assert
-            Assert.AreEqual(expected, output);
-        }
-
-        [TestMethod]
-        public void Test5()
+        public void CheckIsEmpty()
         {
             //arrage
             string input = "";
@@ -81,7 +102,7 @@ namespace AppAnagramTest
         }
 
         [TestMethod]
-        public void Test6()
+        public void CheckIsNull()
         {
             //arrage
             string input = null;
