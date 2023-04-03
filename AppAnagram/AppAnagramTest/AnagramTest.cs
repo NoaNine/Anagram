@@ -13,9 +13,7 @@ namespace AppAnagramTest
         public void QuickTest(string input, string expected)
         {
             Anagram anagram = new Anagram();
-
-            string output = anagram.Reverse(input);
-
+            string? output = anagram.Reverse(input);
             Assert.AreEqual(expected, output);
         }
 
@@ -26,9 +24,7 @@ namespace AppAnagramTest
         public void ReverseWord(string input, string expected)
         {
             Anagram anagram = new Anagram();
-
-            string output = anagram.Reverse(input);
-
+            string? output = anagram.Reverse(input);
             Assert.AreEqual(expected, output);
         }
 
@@ -38,21 +34,17 @@ namespace AppAnagramTest
         public void NonReverseWord(string input, string expected)
         {
             Anagram anagram = new Anagram();
-
-            string output = anagram.Reverse(input);
-
+            string? output = anagram.Reverse(input);
             Assert.AreEqual(expected, output);
         }
 
         [DataTestMethod]
         [DataRow("%%%Moon%%%", "%%%nooM%%%")]
         [DataRow("A#pplicatio~n", "n#oitacilpp~A")]
-        public void MixWordReverseAndNonReverseChar(string input, string expected)
+        public void ReverseWordAndNonReverseChar(string input, string expected)
         {
             Anagram anagram = new Anagram();
-
-            string output = anagram.Reverse(input);
-
+            string? output = anagram.Reverse(input);
             Assert.AreEqual(expected, output);
         }
 
@@ -66,9 +58,7 @@ namespace AppAnagramTest
                 "etubirttA.woRataDgnits.eTtinUslo.oTtseToidut.SlausiVtfosorciM " +
                 "ssalc hcihw sekat ni na yarra fo stnemugra.";
             Anagram anagram = new Anagram();
-
-            string output = anagram.Reverse(input);
-
+            string? output = anagram.Reverse(input);
             Assert.AreEqual(expected, output);
         }
 
@@ -78,21 +68,17 @@ namespace AppAnagramTest
             string input = "";
             string expected = "";
             Anagram anagram = new Anagram();
-
-            string output = anagram.Reverse(input);
-
+            string? output = anagram.Reverse(input);
             Assert.AreEqual(expected, output);
         }
 
         [TestMethod]
         public void CheckIsNull()
         {
-            string input = null;
+            string? input = null;
             string expected = "";
             Anagram anagram = new Anagram();
-
-            string output = anagram.Reverse(input);
-
+            string? output = anagram.Reverse(input);
             Assert.AreEqual(expected, output);
         }
     }

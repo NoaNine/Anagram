@@ -8,48 +8,38 @@ namespace AppAnagram
 {
     public class Anagram
     {
-        public string Reverse(string str)
+        public string? Reverse(string? text)
         {
-            if (string.IsNullOrEmpty(str))
+            if (string.IsNullOrEmpty(text))
             {
                 return string.Empty;
             }
-            string[] word = str.Split(' ');
-            for (int i = 0; i < word.Length; i++)
+            string[] words = text.Split(' ');
+            for (int i = 0; i < words.Length; i++)
             {
-                word[i] = ReverseWord(word[i]);
+                words[i] = ReverseWord(words[i]);
             }
-            return string.Join(' ', word);
+            return string.Join(' ', words);
         }
 
         private string ReverseWord(string word)
         {
-            char[] reverseWordInChars = new char[word.Length];
-            int counterLastLetter = 0;
-            for (int i = 0; i < word.Length; i++)
+            StringBuilder wordBuilder = new StringBuilder();
+            for (int i = word.Length - 1; i >= 0; i--)
             {
-                if (Char.IsLetter(word[i]))
+                if (char.IsLetter(word[i]))
                 {
-                    for (int j = reverseWordInChars.Length - 1 - counterLastLetter; j > -1; j--)
-                    {
-                        if (Char.IsLetter(word[j]))
-                        {
-                            reverseWordInChars[j] = word[i];
-                            counterLastLetter++;
-                            break;
-                        }
-                        else
-                        {
-                            counterLastLetter++;
-                        }
-                    }
-                }
-                else
-                {
-                    reverseWordInChars[i] = word[i];
+                    wordBuilder.Append(word[i]);
                 }
             }
-            return new string(reverseWordInChars);
+            for (int  j = 0; j < word.Length; j++)
+            {
+                if (!char.IsLetter(word[j]))
+                {
+                    wordBuilder.Insert(j, word[j]);
+                }
+            }
+            return wordBuilder.ToString();
         }
     }
 }
