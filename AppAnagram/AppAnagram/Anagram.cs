@@ -8,7 +8,7 @@ namespace AppAnagram
 {
     public class Anagram
     {
-        public string? Reverse(string? text)
+        public string Reverse(string? text)
         {
             if (string.IsNullOrEmpty(text))
             {

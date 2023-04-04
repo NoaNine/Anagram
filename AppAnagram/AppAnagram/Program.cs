@@ -10,7 +10,7 @@ namespace AppAnagram
             Console.WriteLine(Properties.Messages.Greeting);
             Console.Write(Properties.Messages.AskTextForAnagram);
             string? text = Console.ReadLine();
-            string? result = anagram.Reverse(text);
+            string result = anagram.Reverse(text);
             Console.WriteLine(result);
         }
     }
