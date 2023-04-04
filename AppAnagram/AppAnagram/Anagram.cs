@@ -14,6 +14,10 @@ namespace AppAnagram
             {
                 return string.Empty;
             }
+            if (text.Length == 1)
+            {
+                return text;
+            }
             string[] words = text.Split(' ');
             for (int i = 0; i < words.Length; i++)
             {
