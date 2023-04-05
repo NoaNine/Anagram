@@ -30,8 +30,7 @@ namespace AppAnagramTest
 
         [DataTestMethod]
         [DataRow("/'₴!*?)%;)(+=", "/'₴!*?)%;)(+=")]
-        [DataRow("12345", "12345")]
-        [DataRow("9", "9")]
+        [DataRow(" 12345", " 12345")]
         [DataRow("і", "і")]
         public void NonReverseWord(string input, string expected)
         {
@@ -83,5 +82,6 @@ namespace AppAnagramTest
             string output = anagram.Reverse(input);
             Assert.AreEqual(expected, output);
         }
+
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,32 +20,53 @@ namespace AppAnagram
             {
                 return text;
             }
-            string[] words = text.Split(' ');
-            for (int i = 0; i < words.Length; i++)
+            char[] textInChars = text.ToCharArray();
+            int start = 0;
+            for (int i = 0; i < textInChars.Length; i++)
             {
-                words[i] = ReverseWord(words[i]);
+                if (textInChars[i] == ' ' || i == textInChars.Length - 1)
+                {
+                    ReverseWord(ref textInChars, start, i);
+                    start = i;
+                }
             }
-            return string.Join(' ', words);
+            return new string(textInChars);
         }
 
-        private string ReverseWord(string word)
+        private char[] ReverseWord(ref char[] word, int start, int end)
         {
-            StringBuilder wordBuilder = new StringBuilder();
-            for (int i = word.Length - 1; i >= 0; i--)
+            if (start == end)
             {
+                return word;
+            }
+            int movementСount = 0;
+            int nonAlphabetCount = 0; ;
+            int middle = (start + end) / 2;
+            for (int i = start; i <= middle + nonAlphabetCount; i++)
+            {
+                if (i == end + 1)
+                {
+                    return word;
+                }
                 if (char.IsLetter(word[i]))
                 {
-                    wordBuilder.Append(word[i]);
+                    for (int j = end - movementСount; j > i; j--)
+                    {
+                        if (char.IsLetter(word[j]))
+                        {
+                            char temp = word[i];
+                            word[i] = word[j];
+                            word[j] = temp;
+                            movementСount++;
+                            break;
+                        }
+                        movementСount++;
+                    }
+                    continue;
                 }
+                nonAlphabetCount++;
             }
-            for (int  j = 0; j < word.Length; j++)
-            {
-                if (!char.IsLetter(word[j]))
-                {
-                    wordBuilder.Insert(j, word[j]);
-                }
-            }
-            return wordBuilder.ToString();
+            return word;
         }
     }
 }
