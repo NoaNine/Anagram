@@ -13,7 +13,7 @@ namespace AppAnagramTest
         public void QuickTest(string input, string expected)
         {
             Anagram anagram = new Anagram();
-            string? output = anagram.Reverse(input);
+            string output = anagram.Reverse(input);
             Assert.AreEqual(expected, output);
         }
 
@@ -24,17 +24,18 @@ namespace AppAnagramTest
         public void ReverseWord(string input, string expected)
         {
             Anagram anagram = new Anagram();
-            string? output = anagram.Reverse(input);
+            string output = anagram.Reverse(input);
             Assert.AreEqual(expected, output);
         }
 
         [DataTestMethod]
         [DataRow("/'₴!*?)%;)(+=", "/'₴!*?)%;)(+=")]
-        [DataRow("12345", "12345")]
+        [DataRow(" 12345", " 12345")]
+        [DataRow("і", "і")]
         public void NonReverseWord(string input, string expected)
         {
             Anagram anagram = new Anagram();
-            string? output = anagram.Reverse(input);
+            string output = anagram.Reverse(input);
             Assert.AreEqual(expected, output);
         }
 
@@ -44,7 +45,7 @@ namespace AppAnagramTest
         public void ReverseWordAndNonReverseChar(string input, string expected)
         {
             Anagram anagram = new Anagram();
-            string? output = anagram.Reverse(input);
+            string output = anagram.Reverse(input);
             Assert.AreEqual(expected, output);
         }
 
@@ -68,7 +69,7 @@ namespace AppAnagramTest
             string input = "";
             string expected = "";
             Anagram anagram = new Anagram();
-            string? output = anagram.Reverse(input);
+            string output = anagram.Reverse(input);
             Assert.AreEqual(expected, output);
         }
 
@@ -78,8 +79,9 @@ namespace AppAnagramTest
             string? input = null;
             string expected = "";
             Anagram anagram = new Anagram();
-            string? output = anagram.Reverse(input);
+            string output = anagram.Reverse(input);
             Assert.AreEqual(expected, output);
         }
+
     }
 }
