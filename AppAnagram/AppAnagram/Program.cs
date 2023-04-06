@@ -1,4 +1,4 @@
-﻿#undef PERFORMANCE_TEST
+﻿#define PERFORMANCE_TEST
 using System;
 using System.Diagnostics;
 
@@ -38,6 +38,7 @@ namespace AppAnagram
             $"Iteration count: {iterationCount}\n" +
             $"time: {stopwatch.Elapsed.ToString(@"m\:ss\.fff")}");
             return;
+#pragma warning disable CS0162
 #endif
             Anagram anagram = new Anagram();
             Console.WriteLine(Properties.Messages.Greeting);

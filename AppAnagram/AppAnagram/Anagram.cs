@@ -58,33 +58,6 @@ namespace AppAnagram
                 start++;
                 continue;
             }
-            //int movementCount = 0;
-            //int nonAlphabetCount = 0; ;
-            //int middle = (start + end) / 2;
-            //for (int i = start; i <= middle + nonAlphabetCount; i++)
-            //{
-            //    if (i == end + 1)
-            //    {
-            //        return word;
-            //    }
-            //    if (char.IsLetter(word[i]))
-            //    {
-            //        for (int j = end - movementCount; j > i; j--)
-            //        {
-            //            if (char.IsLetter(word[j]))
-            //            {
-            //                char temp = word[i];
-            //                word[i] = word[j];
-            //                word[j] = temp;
-            //                movementCount++;
-            //                break;
-            //            }
-            //            movementCount++;
-            //        }
-            //        continue;
-            //    }
-            //    nonAlphabetCount++;
-            //}
             return word;
         }
     }
