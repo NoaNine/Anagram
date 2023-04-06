@@ -26,14 +26,14 @@ namespace AppAnagram
             {
                 if (textInChars[i] == ' ' || i == textInChars.Length - 1)
                 {
-                    ReverseWord(ref textInChars, start, i);
+                    ReverseWord(textInChars, start, i);
                     start = i;
                 }
             }
             return new string(textInChars);
         }
 
-        private char[] ReverseWord(ref char[] word, int start, int end)
+        private char[] ReverseWord(char[] word, int start, int end)
         {
             if (start == end)
             {
