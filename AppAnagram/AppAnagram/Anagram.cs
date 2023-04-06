@@ -34,32 +34,31 @@ namespace AppAnagram
             return new string(textInChars);
         }
 
-        private char[] ReverseWord(char[] word, int start, int end)
+        private void ReverseWord(char[] word, int start, int end)
         {
-            if (start == end)
-            {
-                return word;
-            }
             while (start < end)
             {
-                if (char.IsLetter(word[start]))
+                if (char.IsLetter(word[start]) && !char.IsLetter(word[end]))
                 {
-                    if (char.IsLetter(word[end]))
-                    {
-                        char temp = word[start];
-                        word[start] = word[end];
-                        word[end] = temp;
-                        start++;
-                        end--;
-                        continue;
-                    }
+                    end--;
+                    continue;
+                }
+                if (char.IsLetter(word[start]) && char.IsLetter(word[end]))
+                {
+                    Swap(word, start, end);
+                    start++;
                     end--;
                     continue;
                 }
                 start++;
-                continue;
             }
-            return word;
+        }
+
+        private void Swap(char[] word, int start, int end)
+        {
+            char temp = word[start];
+            word[start] = word[end];
+            word[end] = temp;
         }
     }
 }

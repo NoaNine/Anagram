@@ -7,6 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>$(DefineConstants);DefineConstants PERFORMANCE_TEST</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Update="Properties\Messages.Designer.cs">
       <DesignTime>True</DesignTime>
