@@ -24,12 +24,13 @@ namespace AppAnagram
             int start = 0;
             for (int i = 0; i < textInChars.Length; i++)
             {
-                if (char.IsWhiteSpace(textInChars[i]) || i == textInChars.Length - 1)
+                if (char.IsWhiteSpace(textInChars[i]))
                 {
                     ReverseWord(textInChars, start, i);
                     start = i;
                 }
             }
+            ReverseWord(textInChars, start, textInChars.Length - 1);
             return new string(textInChars);
         }
 

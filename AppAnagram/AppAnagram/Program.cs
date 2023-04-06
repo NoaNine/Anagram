@@ -1,4 +1,4 @@
-﻿#undef PERFORMANCE_TEST
+﻿#define PERFORMANCE_TEST
 using System;
 using System.Diagnostics;
 
