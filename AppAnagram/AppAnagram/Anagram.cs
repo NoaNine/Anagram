@@ -24,7 +24,7 @@ namespace AppAnagram
             int start = 0;
             for (int i = 0; i < textInChars.Length; i++)
             {
-                if (textInChars[i] == ' ' || i == textInChars.Length - 1)
+                if (textInChars[i] == ' ')
                 {
                     ReverseWord(textInChars, start, i);
                     start = i;
