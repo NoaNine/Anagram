@@ -39,7 +39,7 @@ namespace AppAnagram
             {
                 return word;
             }
-            int movementСount = 0;
+            int movementCount = 0;
             int nonAlphabetCount = 0; ;
             int middle = (start + end) / 2;
             for (int i = start; i <= middle + nonAlphabetCount; i++)
@@ -50,17 +50,17 @@ namespace AppAnagram
                 }
                 if (char.IsLetter(word[i]))
                 {
-                    for (int j = end - movementСount; j > i; j--)
+                    for (int j = end - movementCount; j > i; j--)
                     {
                         if (char.IsLetter(word[j]))
                         {
                             char temp = word[i];
                             word[i] = word[j];
                             word[j] = temp;
-                            movementСount++;
+                            movementCount++;
                             break;
                         }
-                        movementСount++;
+                        movementCount++;
                     }
                     continue;
                 }

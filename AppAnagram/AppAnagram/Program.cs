@@ -8,8 +8,6 @@ namespace AppAnagram
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Properties.Messages.Greeting);
-            Console.WriteLine(Properties.Messages.AskTextForAnagram);
 #if PERFORMANCE_TEST
             Anagram performanceTest = new Anagram();
             int iterationCount = 100_000;
@@ -39,7 +37,14 @@ namespace AppAnagram
             Console.WriteLine(
             $"Iteration count: {iterationCount}\n" +
             $"time: {stopwatch.Elapsed.ToString(@"m\:ss\.fff")}");
+            return;
 #endif
+            Anagram anagram = new Anagram();
+            Console.WriteLine(Properties.Messages.Greeting);
+            Console.WriteLine(Properties.Messages.AskTextForAnagram);
+            string? text = Console.ReadLine();
+            string result = anagram.Reverse(text);
+            Console.WriteLine(result);
         }
     }
 }
