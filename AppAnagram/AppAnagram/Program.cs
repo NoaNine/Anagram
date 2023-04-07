@@ -1,5 +1,4 @@
-﻿#undef PERFORMANCE_TEST
-using System;
+﻿using System;
 using System.Diagnostics;
 
 namespace AppAnagram
@@ -8,8 +7,6 @@ namespace AppAnagram
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Properties.Messages.Greeting);
-            Console.WriteLine(Properties.Messages.AskTextForAnagram);
 #if PERFORMANCE_TEST
             Anagram performanceTest = new Anagram();
             int iterationCount = 100_000;
@@ -39,7 +36,15 @@ namespace AppAnagram
             Console.WriteLine(
             $"Iteration count: {iterationCount}\n" +
             $"time: {stopwatch.Elapsed.ToString(@"m\:ss\.fff")}");
+            return;
+#pragma warning disable CS0162
 #endif
+            Anagram anagram = new Anagram();
+            Console.WriteLine(Properties.Messages.Greeting);
+            Console.WriteLine(Properties.Messages.AskTextForAnagram);
+            string? text = Console.ReadLine();
+            string result = anagram.Reverse(text);
+            Console.WriteLine(result);
         }
     }
 }

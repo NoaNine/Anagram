@@ -24,49 +24,41 @@ namespace AppAnagram
             int start = 0;
             for (int i = 0; i < textInChars.Length; i++)
             {
-                if (textInChars[i] == ' ' || i == textInChars.Length - 1)
+                if (char.IsWhiteSpace(textInChars[i]))
                 {
-                    ReverseWord(ref textInChars, start, i);
+                    ReverseWord(textInChars, start, i);
                     start = i;
                 }
             }
+            ReverseWord(textInChars, start, textInChars.Length - 1);
             return new string(textInChars);
         }
 
-        private char[] ReverseWord(ref char[] word, int start, int end)
+        private void ReverseWord(char[] word, int start, int end)
         {
-            if (start == end)
+            while (start < end)
             {
-                return word;
-            }
-            int movementСount = 0;
-            int nonAlphabetCount = 0; ;
-            int middle = (start + end) / 2;
-            for (int i = start; i <= middle + nonAlphabetCount; i++)
-            {
-                if (i == end + 1)
+                if (char.IsLetter(word[start]) && !char.IsLetter(word[end]))
                 {
-                    return word;
-                }
-                if (char.IsLetter(word[i]))
-                {
-                    for (int j = end - movementСount; j > i; j--)
-                    {
-                        if (char.IsLetter(word[j]))
-                        {
-                            char temp = word[i];
-                            word[i] = word[j];
-                            word[j] = temp;
-                            movementСount++;
-                            break;
-                        }
-                        movementСount++;
-                    }
+                    end--;
                     continue;
                 }
-                nonAlphabetCount++;
+                if (char.IsLetter(word[start]) && char.IsLetter(word[end]))
+                {
+                    Swap(word, start, end);
+                    start++;
+                    end--;
+                    continue;
+                }
+                start++;
             }
-            return word;
+        }
+
+        private void Swap(char[] word, int start, int end)
+        {
+            char temp = word[start];
+            word[start] = word[end];
+            word[end] = temp;
         }
     }
 }
