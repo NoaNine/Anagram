@@ -1,10 +1,10 @@
-#FoxmindEd_Task1
+# FoxmindEd_Task1
 
 The project was created by Oleksandr Havlytskyi for educational purposes at the FoxmindEd course.
-
-**The purpose of the project:** Learn to create string parsing function without regular expressions and covered with tests.
-
+____
 **Technology or principles have been mastered( or repeated):** GIT, MsTest, algorithms, naming conventions, regular expressions.
+____
+**The purpose of the project:** Learn to create string parsing function without regular expressions and covered with tests.
 
 **Task description:**
 Create a console application for reverse each word* in the input line
