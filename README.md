@@ -28,7 +28,6 @@ Examples:
 ** Spaces (as one of non alphabetic symbols) should not be deleted from the result string.
 
 
-
 Create a test project for checking the algorithm of the reverse.
 
 
